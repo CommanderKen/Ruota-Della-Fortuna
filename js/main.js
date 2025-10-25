@@ -57,6 +57,7 @@ $(document).ready(function() {
 	$('.new-phrase').click(function() {
 		//Reset the textbox for the new phrase
 		$('.parse-me').val('');
+		$('.hint-input').val('');
 		char_used = '';
 		$('.char-used').text('Lettere giocate: ');
 		selectedPhrase = '';
@@ -93,7 +94,7 @@ $(document).ready(function() {
 	});
 	
 	//Handle Enter key in modal
-	$('.parse-me').keypress(function(e) {
+	$('.parse-me, .hint-input').keypress(function(e) {
 		if(e.which == 13) {
 			$('.go').click();
 		}
@@ -101,6 +102,7 @@ $(document).ready(function() {
 	
 	$('.go').click(function() {
 		var phrase = $('.parse-me').val().trim();
+		var customHint = $('.hint-input').val().trim();
 		
 		if(phrase === '') {
 			alert('Per favore inserisci una frase!');
@@ -109,8 +111,9 @@ $(document).ready(function() {
 		}
 		
 		selectedPhrase = phrase;
+		var hintToShow = customHint || 'Frase personalizzata - usa la tua intuizione!';
 		$('#phrase').modal('hide');
-		startGame(selectedPhrase, false, 'Frase personalizzata - usa la tua intuizione!');
+		startGame(selectedPhrase, false, hintToShow);
 	});
 	
 	// Function to start the game with a given phrase

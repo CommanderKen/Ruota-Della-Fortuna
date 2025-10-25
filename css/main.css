@@ -4,6 +4,11 @@
    Author's custom styles
    ========================================================================== */
 
+/* Rimozione dello scroll non necessario */
+html {
+    overflow-x: hidden;
+}
+
 /* Stili generali per il corpo della pagina - Design moderno */
 body {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #667eea 100%);
@@ -13,6 +18,9 @@ body {
     min-height: 100vh;
     position: relative;
     overflow-x: hidden;
+    padding-top: 60px;
+    padding-bottom: 40px;
+    box-sizing: border-box;
 }
 
 /* Aggiunta di particelle animate di sfondo */
@@ -22,13 +30,14 @@ body::before {
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 100vh;
     background-image: 
         radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
         radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
         radial-gradient(circle at 40% 40%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
     animation: float 20s ease-in-out infinite;
     z-index: -1;
+    pointer-events: none;
 }
 
 @keyframes float {
