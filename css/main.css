@@ -4,14 +4,330 @@
    Author's custom styles
    ========================================================================== */
 
-
-.tabbellone span {
-	text-transform:uppercase;
-	font-size:100px;
+/* Stili generali per il corpo della pagina */
+body {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background-attachment: fixed;
+    font-family: 'Arial', sans-serif;
+    color: #ffffff;
+    min-height: 100vh;
 }
 
-body{
-   background-color: #151515;
+/* Stili per il tabellone di gioco */
+.tabbellone {
+    background: rgba(255, 255, 255, 0.1);
+    border: 3px solid #ffffff;
+    border-radius: 15px;
+    padding: 30px;
+    margin: 20px 0;
+    text-align: center;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    min-height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+/* Container per ogni parola - previene il word breaking */
+.word-container {
+    display: inline-flex;
+    align-items: center;
+    white-space: nowrap;
+    margin: 2px;
+}
+
+/* Spazio tra le parole */
+.word-space {
+    width: 15px;
+    height: 1px;
+    display: inline-block;
+    flex-shrink: 0;
+}
+
+.tabbellone span {
+    text-transform: uppercase;
+    font-size: 60px;
+    font-weight: bold;
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    margin: 0 4px;
+    display: inline-block;
+    min-width: 50px;
+    line-height: 1.2;
+    white-space: nowrap;
+}
+
+/* Stili per le lettere nascoste e rivelate */
+.tabbellone span.uncheck {
+    border-bottom: 4px solid #ffffff;
+    color: transparent;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 5px;
+}
+
+.tabbellone span.check {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    padding: 5px;
+    animation: letterReveal 0.5s ease-in-out;
+}
+
+/* Animazione per la rivelazione delle lettere */
+@keyframes letterReveal {
+    0% { 
+        transform: scale(0.5); 
+        opacity: 0; 
+    }
+    50% { 
+        transform: scale(1.2); 
+    }
+    100% { 
+        transform: scale(1); 
+        opacity: 1; 
+    }
+}
+
+/* Stili per la sezione del gioco */
+.hero-unit {
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    color: #ffffff;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.hero-unit h1 {
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Stili per le informazioni di gioco */
+.game {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ffeb3b;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.char-used {
+    font-size: 18px;
+    color: #e3f2fd;
+    margin-top: 10px;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    display: inline-block;
+}
+
+/* Stili per la navbar */
+.navbar-inverse .navbar-inner {
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    border: none;
+}
+
+.navbar-inverse .brand,
+.navbar-inverse .nav > li > a {
+    color: #ffffff;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.navbar-inverse .brand:hover,
+.navbar-inverse .nav > li > a:hover {
+    color: #ffeb3b;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Stili per il modal */
+.modal {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    border: none;
+}
+
+.modal-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #ffffff;
+    border-radius: 15px 15px 0 0;
+}
+
+.modal-header h3 {
+    color: #ffffff;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.modal-body {
+    padding: 30px;
+}
+
+.modal-body input[type="text"] {
+    width: 100%;
+    padding: 12px;
+    font-size: 18px;
+    border: 2px solid #667eea;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+}
+
+.modal-body input[type="text"]:focus {
+    border-color: #764ba2;
+    outline: none;
+    box-shadow: 0 0 10px rgba(118, 75, 162, 0.3);
+}
+
+.modal-footer {
+    background: rgba(245, 245, 245, 0.9);
+    border-radius: 0 0 15px 15px;
+}
+
+/* Stili responsive per tablet */
+@media (max-width: 768px) {
+    .tabbellone {
+        gap: 8px;
+        padding: 20px;
+        min-height: 150px;
+    }
+    
+    .word-container {
+        margin: 1px;
+    }
+    
+    .word-space {
+        width: 12px;
+    }
+    
+    .tabbellone span {
+        font-size: 40px;
+        margin: 0 3px;
+        min-width: 35px;
+    }
+    
+    .game {
+        font-size: 20px;
+    }
+    
+    .char-used {
+        font-size: 16px;
+    }
+}
+
+/* Stili responsive per smartphone */
+@media (max-width: 480px) {
+    .tabbellone {
+        gap: 5px;
+        padding: 15px;
+        min-height: 120px;
+    }
+    
+    .word-container {
+        margin: 0px;
+    }
+    
+    .word-space {
+        width: 8px;
+    }
+    
+    .tabbellone span {
+        font-size: 30px;
+        margin: 0 2px;
+        min-width: 28px;
+    }
+    
+    .game {
+        font-size: 18px;
+    }
+    
+    .char-used {
+        font-size: 14px;
+        padding: 8px;
+    }
+    
+    .hero-unit {
+        padding: 30px 20px;
+    }
+    
+    .modal-body {
+        padding: 20px;
+    }
+}
+
+/* Stili per migliorare l'accessibilità */
+.btn:focus,
+.btn:hover {
+    outline: 2px solid #ffeb3b;
+    outline-offset: 2px;
+}
+
+/* Effetti hover per i bottoni */
+.btn-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: none;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Stili per il container principale */
+.container {
+    position: relative;
+    z-index: 1;
+}
+
+/* Stili per i bottoni del modal */
+.modal-body .btn-large {
+    padding: 15px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.modal-body .btn-large:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.modal-body .btn-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: none;
+}
+
+.modal-body .btn-info {
+    background: linear-gradient(135deg, #36d1dc 0%, #5b86e5 100%);
+    border: none;
+}
+
+/* Stili per la punteggiatura e spazi */
+.tabbellone span.space {
+    min-width: 20px;
+    display: inline-block;
+}
+
+.tabbellone span.punctuation {
+    color: #ffeb3b !important;
+    background: none !important;
+    border: none !important;
+    font-weight: bold;
+}
+
+/* Messaggio di benvenuto per browser obsoleti */
+.chromeframe {
+    background: #ffeb3b;
+    color: #333;
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+    margin: 10px;
 }
 
 

@@ -6,8 +6,8 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title></title>
-        <meta name="description" content="">
+        <title>Ruota della Furrtuna</title>
+        <meta name="description" content="Gioca al classico gioco della Ruota della Furrtuna. Indovina le lettere per completare la frase!">
         <meta name="viewport" content="width=device-width">
 
         <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -39,10 +39,10 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </a>
-                    <a class="brand" href="#">Ruota della fortuna</a>
+                    <a class="brand" href="#">Ruota della furrtuna</a>
                     <div class="nav-collapse collapse">
                         <ul class="nav">
-                            <li class="new-phrase input-large"><a href="#">Nuova Frase</a></li>
+                            <li class="new-phrase input-large"><a href="#">New</a></li>
                         </ul>
                     </div><!--/.nav-collapse -->
                 </div>
@@ -51,28 +51,59 @@
 
         <div class="container">
 
-            <!-- Main hero unit for a primary marketing message or call to action -->
-            <div class="hero-unit tabbellone">
-
+            <!-- Sezione per il suggerimento -->
+            <div class="hero-unit" id="hint-section" style="display: none; padding: 20px; margin-bottom: 15px; background: rgba(255, 235, 59, 0.1); border: 2px solid rgba(255, 235, 59, 0.3);">
+                <div style="text-align: center;">
+                    <p id="game-hint" style="color: #ffeb3b; font-size: 20px; margin: 0; font-weight: bold;">
+                        💡 Nessun suggerimento disponibile
+                    </p>
+                </div>
             </div>
 
-	 <div class="hero-unit">
-		<span class="game"> </span><br>
-		<span class="char-used"> </span>
+            <!-- Main hero unit for a primary marketing message or call to action -->
+            <div class="hero-unit tabbellone">
+                <p style="color: #ffffff; font-size: 24px; margin-bottom: 20px;">Indovina la frase, una lettera alla volta!</p>
+            </div>
+
+            <div class="hero-unit">
+                <div class="row-fluid">
+                    <div class="span6">
+                        <span class="char-used">Lettere giocate: </span>
+                    </div>
+                </div>
             </div>
         </div> <!-- /container -->
 <div id="phrase" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-<div class="modal-header">
-<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-<h3 id="myModalLabel">Inserisci la nuova frase</h3>
-</div>
-<div class="modal-body">
-<p><input type="text" placeholder="Inserisci la frase" class="parse-me"></p>
-</div>
-<div class="modal-footer">
-<button class="btn" data-dismiss="modal" aria-hidden="true">Annulla</button>
-<button class="btn btn-primary go">Gioca!</button>
-</div>
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h3 id="myModalLabel">🎯 Scegli una nuova frase</h3>
+    </div>
+    <div class="modal-body">
+        <div style="text-align: center; padding: 20px;">
+            <p style="margin-bottom: 20px; color: #666; font-size: 18px;">
+                🎲 Scegli come vuoi giocare:
+            </p>
+            <button class="btn btn-large btn-primary random-phrase" style="margin: 10px; width: 200px;">
+                🎭 Frase Casuale
+            </button>
+            <button class="btn btn-large btn-info custom-phrase" style="margin: 10px; width: 200px;">
+                ✏️ Frase Personalizzata
+            </button>
+        </div>
+        <div id="custom-input" style="display: none; margin-top: 20px;">
+            <p style="margin-bottom: 15px; color: #666; font-size: 16px;">
+                Inserisci una frase o una parola da indovinare:
+            </p>
+            <input type="text" placeholder="Scrivi qui la frase da indovinare..." class="parse-me" style="width: 100%; padding: 12px; font-size: 18px; border: 2px solid #667eea; border-radius: 8px; box-sizing: border-box;">
+            <p style="margin-top: 10px; color: #999; font-size: 14px;">
+                💡 Suggerimento: Usa frasi interessanti, proverbi o citazioni famose!
+            </p>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true">Annulla</button>
+        <button class="btn btn-primary go" style="display: none;">🎮 Inizia a Giocare!</button>
+    </div>
 </div>
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.0.min.js"><\/script>')</script>
