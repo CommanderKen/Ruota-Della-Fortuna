@@ -125,7 +125,7 @@ $(document).ready(function() {
 		
 		// Show hint in the dedicated section
 		if (hint) {
-			$('#game-hint').text('💡 ' + hint);
+			$('#game-hint').text(hint);
 			$('#hint-section').show();
 		} else {
 			$('#hint-section').hide();
