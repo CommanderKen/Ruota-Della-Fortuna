@@ -11,42 +11,83 @@ $(document).ready(function() {
 	var phrases = [];
 	//Current selected phrase
 	var selectedPhrase = '';
+	//Current selected phrase data (for index selection)
+	var selectedPhraseData = null;
 	
-	// Load phrases from file
+	// Load phrases from JSON file
 	function loadPhrases() {
-		return $.get('frasi.txt')
+		return $.getJSON('frasi.json')
 			.done(function(data) {
-				phrases = data.split('\n').filter(function(line) {
-					return line.trim() !== '';
-				});
-				console.log('Loaded ' + phrases.length + ' phrases with hints');
+				phrases = data.frasi;
+				console.log('Loaded ' + phrases.length + ' phrases with hints from JSON');
+				console.log('Available categories:', data.categorie);
 			})
 			.fail(function() {
-				console.error('Could not load phrases file');
+				console.error('Could not load phrases JSON file');
 				phrases = [
-					'Proverbio filosofico con 4 parole semplici|La vita è un gioco',
-					'Proverbio sui pigri - contiene animali marini|Chi dorme non piglia pesci',
-					'Proverbio sul tempo - preferire il ritardo|Meglio tardi che mai',
-					'Frase famosa su tempo e ricchezza|Il tempo è denaro',
-					'Proverbio sulla collaborazione e forza|L\'unione fa la forza'
+					{
+						id: 1,
+						categoria: 'Proverbi',
+						suggerimento: 'Proverbio filosofico con 4 parole semplici',
+						frase: 'La vita è un gioco'
+					},
+					{
+						id: 2,
+						categoria: 'Proverbi',
+						suggerimento: 'Proverbio sui pigri - contiene animali marini',
+						frase: 'Chi dorme non piglia pesci'
+					},
+					{
+						id: 3,
+						categoria: 'Proverbi',
+						suggerimento: 'Proverbio sul tempo - preferire il ritardo',
+						frase: 'Meglio tardi che mai'
+					},
+					{
+						id: 4,
+						categoria: 'Proverbi',
+						suggerimento: 'Frase famosa su tempo e ricchezza',
+						frase: 'Il tempo è denaro'
+					},
+					{
+						id: 5,
+						categoria: 'Proverbi',
+						suggerimento: 'Proverbio sulla collaborazione e forza',
+						frase: 'L\'unione fa la forza'
+					}
 				];
 			});
 	}
 	
-	// Get random phrase and hint from loaded phrases
+	// Get phrase by index from loaded phrases
+	function getPhraseByIndex(index) {
+		if (phrases.length === 0 || index < 1 || index > phrases.length) {
+			return null;
+		}
+		var selectedPhrase = phrases[index - 1]; // Array is 0-based, but user input is 1-based
+		return {
+			id: selectedPhrase.id,
+			categoria: selectedPhrase.categoria,
+			hint: selectedPhrase.suggerimento || 'Nessun suggerimento disponibile',
+			phrase: selectedPhrase.frase
+		};
+	}
 	function getRandomPhraseWithHint() {
 		if (phrases.length === 0) {
 			return {
+				id: 1,
+				categoria: 'Proverbi',
 				hint: 'Proverbio filosofico con 4 parole semplici',
 				phrase: 'La vita è un gioco'
 			};
 		}
 		var randomIndex = Math.floor(Math.random() * phrases.length);
-		var line = phrases[randomIndex].trim();
-		var parts = line.split('|');
+		var selectedPhrase = phrases[randomIndex];
 		return {
-			hint: parts[0] || 'Nessun suggerimento disponibile',
-			phrase: parts[1] || line
+			id: selectedPhrase.id,
+			categoria: selectedPhrase.categoria,
+			hint: selectedPhrase.suggerimento || 'Nessun suggerimento disponibile',
+			phrase: selectedPhrase.frase
 		};
 	}
 	
@@ -54,19 +95,23 @@ $(document).ready(function() {
 	loadPhrases();
 	
 	//On click on the play button
-	$('.new-phrase').click(function() {
+	$('.brand').click(function() {
 		//Reset the textbox for the new phrase
 		$('.parse-me').val('');
 		$('.hint-input').val('');
+		$('.index-input-field').val('');
 		char_used = '';
 		$('.char-used').text('Lettere giocate: ');
 		selectedPhrase = '';
+		selectedPhraseData = null;
 		
 		// Hide hint section when starting new game
 		$('#hint-section').hide();
 		
 		// Reset modal state
 		$('#custom-input').hide();
+		$('#index-input').hide();
+		$('#phrase-preview').hide();
 		$('.go').hide();
 		
 		$('#phrase').modal('show');
@@ -78,7 +123,14 @@ $(document).ready(function() {
 		var phraseData = getRandomPhraseWithHint();
 		selectedPhrase = phraseData.phrase;
 		$('#phrase').modal('hide');
-		startGame(selectedPhrase, true, phraseData.hint);
+		startGame(selectedPhrase, true, phraseData.hint, phraseData.categoria);
+	});
+	
+	// Handle index phrase button
+	$('.index-phrase').click(function() {
+		$('#index-input').show();
+		$('.go').show();
+		$('.index-input-field').focus();
 	});
 	
 	// Handle custom phrase button
@@ -88,43 +140,77 @@ $(document).ready(function() {
 		$('.parse-me').focus();
 	});
 	
+	// Handle index input change for preview
+	$('.index-input-field').on('input', function() {
+		var index = parseInt($(this).val());
+		if (index && index >= 1 && index <= phrases.length) {
+			var phraseData = getPhraseByIndex(index);
+			if (phraseData) {
+				selectedPhraseData = phraseData;
+				$('#preview-category').text('Categoria: ' + phraseData.categoria);
+				$('#preview-hint').text('Suggerimento: ' + phraseData.hint);
+				$('#phrase-preview').show();
+			}
+		} else {
+			$('#phrase-preview').hide();
+			selectedPhraseData = null;
+		}
+	});
+	
 	//Set the focus on the textbox
 	$('#phrase').on('shown', function () {
 		// Focus is now handled by the custom phrase button
 	});
 	
 	//Handle Enter key in modal
-	$('.parse-me, .hint-input').keypress(function(e) {
+	$('.parse-me, .hint-input, .index-input-field').keypress(function(e) {
 		if(e.which == 13) {
 			$('.go').click();
 		}
 	});
 	
 	$('.go').click(function() {
-		var phrase = $('.parse-me').val().trim();
-		var customHint = $('.hint-input').val().trim();
-		
-		if(phrase === '') {
-			alert('Per favore inserisci una frase!');
-			$('.parse-me').focus();
+		// Check if we're using index selection
+		if (selectedPhraseData) {
+			selectedPhrase = selectedPhraseData.phrase;
+			$('#phrase').modal('hide');
+			startGame(selectedPhrase, false, selectedPhraseData.hint, selectedPhraseData.categoria + ' #' + selectedPhraseData.id);
 			return;
 		}
 		
-		selectedPhrase = phrase;
-		var hintToShow = customHint || 'Frase personalizzata - usa la tua intuizione!';
-		$('#phrase').modal('hide');
-		startGame(selectedPhrase, false, hintToShow);
+		// Check if we're using custom phrase
+		var phrase = $('.parse-me').val().trim();
+		var customHint = $('.hint-input').val().trim();
+		
+		if(phrase !== '') {
+			selectedPhrase = phrase;
+			var hintToShow = customHint || 'Frase personalizzata - usa la tua intuizione!';
+			$('#phrase').modal('hide');
+			startGame(selectedPhrase, false, hintToShow, 'Personalizzata');
+			return;
+		}
+		
+		// Check if we're using index but no preview (invalid index)
+		var indexValue = $('.index-input-field').val().trim();
+		if (indexValue !== '') {
+			alert('Per favore inserisci un numero valido tra 1 e ' + phrases.length + '!');
+			$('.index-input-field').focus();
+			return;
+		}
+		
+		alert('Per favore seleziona una modalità di gioco!');
 	});
 	
 	// Function to start the game with a given phrase
-	function startGame(phrase, isRandom, hint) {
+	function startGame(phrase, isRandom, hint, categoria) {
 		$('.tabbellone').html('');
 		char_used = '';
 		$('.char-used').text('Lettere giocate: ');
 		game += 1;
 		
 		var gameType = isRandom ? ' 🎲' : ' ✏️';
-		$('.game').text('Partita n. ' + game + gameType);
+		var categoryText = categoria ? ' (' + categoria + ')' : '';
+		$('.game').text('Partita n. ' + game + gameType + categoryText);
 		
 		// Show hint in the dedicated section
 		if (hint) {

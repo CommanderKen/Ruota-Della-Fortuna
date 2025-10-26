@@ -1,0 +1,531 @@
+{
+  "frasi": [
+    {
+      "id": 1,
+      "categoria": "Proverbi",
+      "suggerimento": "Proverbio filosofico con 4 parole semplici",
+      "frase": "La vita è un gioco"
+    },
+    {
+      "id": 2,
+      "categoria": "Proverbi",
+      "suggerimento": "Proverbio sui pigri - contiene animali marini",
+      "frase": "Chi dorme non piglia pesci"
+    },
+    {
+      "id": 3,
+      "categoria": "Proverbi",
+      "suggerimento": "Proverbio sul tempo - preferire il ritardo",
+      "frase": "Meglio tardi che mai"
+    },
+    {
+      "id": 4,
+      "categoria": "Proverbi",
+      "suggerimento": "Frase famosa su tempo e ricchezza",
+      "frase": "Il tempo è denaro"
+    },
+    {
+      "id": 5,
+      "categoria": "Proverbi",
+      "suggerimento": "Proverbio sulla collaborazione e forza",
+      "frase": "L'unione fa la forza"
+    },
+    {
+      "id": 6,
+      "categoria": "Proverbi",
+      "suggerimento": "Metafora poetica su speranza dopo difficoltà",
+      "frase": "Ogni nuvola ha il suo arcobaleno"
+    },
+    {
+      "id": 7,
+      "categoria": "Proverbi",
+      "suggerimento": "Frase breve su conoscenza e autorità",
+      "frase": "Il sapere è potere"
+    },
+    {
+      "id": 8,
+      "categoria": "Proverbi",
+      "suggerimento": "Proverbio su dolci e imperfezioni",
+      "frase": "Non tutte le ciambelle riescono col buco"
+    },
+    {
+      "id": 9,
+      "categoria": "Proverbi",
+      "suggerimento": "Proverbio sull'importanza di iniziare bene",
+      "frase": "Chi ben comincia è a metà dell'opera"
+    },
+    {
+      "id": 10,
+      "categoria": "Proverbi",
+      "suggerimento": "Metafora su verità che emergono sempre",
+      "frase": "Tutti i nodi vengono al pettine"
+    },
+    {
+      "id": 11,
+      "categoria": "Proverbi",
+      "suggerimento": "Proverbio sul crescere del desiderio",
+      "frase": "L'appetito vien mangiando"
+    },
+    {
+      "id": 12,
+      "categoria": "Proverbi",
+      "suggerimento": "Proverbio su velocità e sicurezza",
+      "frase": "Chi va piano va sano e va lontano"
+    },
+    {
+      "id": 13,
+      "categoria": "Proverbi",
+      "suggerimento": "Proverbio su vedere e soffrire",
+      "frase": "Occhio non vede cuore non duole"
+    },
+    {
+      "id": 14,
+      "categoria": "Proverbi",
+      "suggerimento": "Contrasto tra orale e scritto",
+      "frase": "Le parole volano gli scritti rimangono"
+    },
+    {
+      "id": 15,
+      "categoria": "Proverbi",
+      "suggerimento": "Proverbio su come inizia la giornata",
+      "frase": "Il buongiorno si vede dal mattino"
+    },
+    {
+      "id": 16,
+      "categoria": "Proverbi",
+      "suggerimento": "Città eterna e costruzione nel tempo",
+      "frase": "Roma non fu costruita in un giorno"
+    },
+    {
+      "id": 17,
+      "categoria": "Proverbi",
+      "suggerimento": "Ostacolo liquido tra intenzioni e azioni",
+      "frase": "Tra il dire e il fare c'è di mezzo il mare"
+    },
+    {
+      "id": 18,
+      "categoria": "Proverbi",
+      "suggerimento": "Proverbio su regalo e critica",
+      "frase": "A caval donato non si guarda in bocca"
+    },
+    {
+      "id": 19,
+      "categoria": "Proverbi",
+      "suggerimento": "Metallo prezioso e apparenze ingannevoli",
+      "frase": "Non è tutto oro quello che luccica"
+    },
+    {
+      "id": 20,
+      "categoria": "Proverbi",
+      "suggerimento": "Vestito religioso e apparenza",
+      "frase": "L'abito non fa il monaco"
+    },
+    {
+      "id": 21,
+      "categoria": "Proverbi",
+      "suggerimento": "Diversità come bellezza del mondo",
+      "frase": "Il mondo è bello perché è vario"
+    },
+    {
+      "id": 22,
+      "categoria": "Proverbi",
+      "suggerimento": "Amicizia come ricchezza preziosa",
+      "frase": "Chi trova un amico trova un tesoro"
+    },
+    {
+      "id": 23,
+      "categoria": "Proverbi",
+      "suggerimento": "Auto-aiuto e assistenza divina",
+      "frase": "Aiutati che il ciel ti aiuta"
+    },
+    {
+      "id": 24,
+      "categoria": "Proverbi",
+      "suggerimento": "Elemento che rivela presenza di fuoco",
+      "frase": "Dove c'è fumo c'è fuoco"
+    },
+    {
+      "id": 25,
+      "categoria": "Proverbi",
+      "suggerimento": "Pentole e coperchi del diavolo",
+      "frase": "Il diavolo fa le pentole ma non i coperchi"
+    },
+    {
+      "id": 26,
+      "categoria": "Proverbi",
+      "suggerimento": "Desiderio eccessivo porta a perdere tutto",
+      "frase": "Chi troppo vuole nulla stringe"
+    },
+    {
+      "id": 27,
+      "categoria": "Proverbi",
+      "suggerimento": "Viaggiare e adattarsi alle usanze locali",
+      "frase": "Paese che vai usanza che trovi"
+    },
+    {
+      "id": 28,
+      "categoria": "Proverbi",
+      "suggerimento": "Ironia su chi ha strumenti ma non risorse",
+      "frase": "Chi ha i denti non ha il pane"
+    },
+    {
+      "id": 29,
+      "categoria": "Proverbi",
+      "suggerimento": "Seminare male e raccogliere peggio",
+      "frase": "Chi semina vento raccoglie tempesta"
+    },
+    {
+      "id": 30,
+      "categoria": "Proverbi",
+      "suggerimento": "Gatto traumatizzato dall'acqua",
+      "frase": "Gatto scottato dall'acqua calda ha paura anche di quella fredda"
+    },
+    {
+      "id": 31,
+      "categoria": "Feste",
+      "suggerimento": "Festività natalizie e pasquali",
+      "frase": "Natale con i tuoi Pasqua con chi vuoi"
+    },
+    {
+      "id": 32,
+      "categoria": "Feste",
+      "suggerimento": "Nuovo anno e nuovo inizio",
+      "frase": "Anno nuovo vita nuova"
+    },
+    {
+      "id": 33,
+      "categoria": "Auguri",
+      "suggerimento": "Auguri per il giorno della nascita",
+      "frase": "Buon compleanno"
+    },
+    {
+      "id": 34,
+      "categoria": "Auguri",
+      "suggerimento": "Auguri generici per occasioni speciali",
+      "frase": "Tanti auguri"
+    },
+    {
+      "id": 35,
+      "categoria": "Auguri",
+      "suggerimento": "Auguri per la festa di dicembre",
+      "frase": "Felice Natale"
+    },
+    {
+      "id": 36,
+      "categoria": "Auguri",
+      "suggerimento": "Auguri per l'inizio dell'anno",
+      "frase": "Buon anno"
+    },
+    {
+      "id": 37,
+      "categoria": "Auguri",
+      "suggerimento": "Augurio di successo e casualità positiva",
+      "frase": "Buona fortuna"
+    },
+    {
+      "id": 38,
+      "categoria": "Auguri",
+      "suggerimento": "Augurio teatrale per la buona sorte",
+      "frase": "In bocca al lupo"
+    },
+    {
+      "id": 39,
+      "categoria": "Tecnologia",
+      "suggerimento": "Disciplina che crea software e applicazioni",
+      "frase": "Programmazione informatica"
+    },
+    {
+      "id": 40,
+      "categoria": "Tecnologia",
+      "suggerimento": "Tecnologia che simula l'intelligenza umana",
+      "frase": "Intelligenza artificiale"
+    },
+    {
+      "id": 41,
+      "categoria": "Tecnologia",
+      "suggerimento": "Creazione di programmi e applicazioni",
+      "frase": "Sviluppo software"
+    },
+    {
+      "id": 42,
+      "categoria": "Tecnologia",
+      "suggerimento": "Innovazioni del nostro tempo",
+      "frase": "Tecnologia moderna"
+    },
+    {
+      "id": 43,
+      "categoria": "Tecnologia",
+      "suggerimento": "Rete di oggetti connessi",
+      "frase": "Internet delle cose"
+    },
+    {
+      "id": 44,
+      "categoria": "Tecnologia",
+      "suggerimento": "Mondo artificiale immersivo",
+      "frase": "Realtà virtuale"
+    },
+    {
+      "id": 45,
+      "categoria": "Tecnologia",
+      "suggerimento": "Piattaforme di comunicazione online",
+      "frase": "Social media"
+    },
+    {
+      "id": 46,
+      "categoria": "Ambiente",
+      "suggerimento": "Fonti di energia pulita",
+      "frase": "Energia rinnovabile"
+    },
+    {
+      "id": 47,
+      "categoria": "Ambiente",
+      "suggerimento": "Alterazione del clima globale",
+      "frase": "Cambiamento climatico"
+    },
+    {
+      "id": 48,
+      "categoria": "Ambiente",
+      "suggerimento": "Rispetto per l'ambiente",
+      "frase": "Sostenibilità ambientale"
+    },
+    {
+      "id": 49,
+      "categoria": "Casa e Famiglia",
+      "suggerimento": "Luogo del cuore e affetto",
+      "frase": "Casa dolce casa"
+    },
+    {
+      "id": 50,
+      "categoria": "Casa e Famiglia",
+      "suggerimento": "Nucleo di persone unite e contente",
+      "frase": "Famiglia felice"
+    },
+    {
+      "id": 51,
+      "categoria": "Sentimenti",
+      "suggerimento": "Sentimento che dura per sempre",
+      "frase": "Amore eterno"
+    },
+    {
+      "id": 52,
+      "categoria": "Sentimenti",
+      "suggerimento": "Tranquillità globale senza conflitti",
+      "frase": "Pace nel mondo"
+    },
+    {
+      "id": 53,
+      "categoria": "Benessere",
+      "suggerimento": "Benessere fisico e mentale",
+      "frase": "Salute e benessere"
+    },
+    {
+      "id": 54,
+      "categoria": "Cucina Italiana",
+      "suggerimento": "Pizza classica con pomodoro e mozzarella",
+      "frase": "Pizza margherita"
+    },
+    {
+      "id": 55,
+      "categoria": "Cucina Italiana",
+      "suggerimento": "Pasta romana con uova e pancetta",
+      "frase": "Spaghetti alla carbonara"
+    },
+    {
+      "id": 56,
+      "categoria": "Cucina Italiana",
+      "suggerimento": "Dolce freddo al cacao",
+      "frase": "Gelato al cioccolato"
+    },
+    {
+      "id": 57,
+      "categoria": "Cucina Italiana",
+      "suggerimento": "Bevanda italiana forte e concentrata",
+      "frase": "Caffè espresso"
+    },
+    {
+      "id": 58,
+      "categoria": "Cucina Italiana",
+      "suggerimento": "Dolce al mascarpone della nonna",
+      "frase": "Tiramisù della nonna"
+    },
+    {
+      "id": 59,
+      "categoria": "Viaggi",
+      "suggerimento": "Vacanza nella penisola italiana",
+      "frase": "Viaggio in Italia"
+    },
+    {
+      "id": 60,
+      "categoria": "Viaggi",
+      "suggerimento": "Ferie estive sulla costa",
+      "frase": "Vacanze al mare"
+    },
+    {
+      "id": 61,
+      "categoria": "Natura",
+      "suggerimento": "Vette coperte di neve bianca",
+      "frase": "Montagne innevate"
+    },
+    {
+      "id": 62,
+      "categoria": "Natura",
+      "suggerimento": "Fine del giorno con colori caldi",
+      "frase": "Tramonto romantico"
+    },
+    {
+      "id": 63,
+      "categoria": "Natura",
+      "suggerimento": "Cielo buio pieno di stelle",
+      "frase": "Notte stellata"
+    },
+    {
+      "id": 64,
+      "categoria": "Musica",
+      "suggerimento": "Genere musicale colto e raffinato",
+      "frase": "Musica classica"
+    },
+    {
+      "id": 65,
+      "categoria": "Musica",
+      "suggerimento": "Genere musicale energico degli anni '50",
+      "frase": "Rock and roll"
+    },
+    {
+      "id": 66,
+      "categoria": "Musica",
+      "suggerimento": "Musica improvvisata e sofisticata",
+      "frase": "Jazz moderno"
+    },
+    {
+      "id": 67,
+      "categoria": "Musica",
+      "suggerimento": "Musica italiana contemporanea",
+      "frase": "Pop italiano"
+    },
+    {
+      "id": 68,
+      "categoria": "Musica",
+      "suggerimento": "Teatro musicale italiano tradizionale",
+      "frase": "Opera lirica"
+    },
+    {
+      "id": 69,
+      "categoria": "Arte e Cultura",
+      "suggerimento": "Genio rinascimentale artista e inventore",
+      "frase": "Leonardo da Vinci"
+    },
+    {
+      "id": 70,
+      "categoria": "Arte e Cultura",
+      "suggerimento": "Scultore del David e della Pietà",
+      "frase": "Michelangelo Buonarroti"
+    },
+    {
+      "id": 71,
+      "categoria": "Arte e Cultura",
+      "suggerimento": "Poeta della Divina Commedia",
+      "frase": "Dante Alighieri"
+    },
+    {
+      "id": 72,
+      "categoria": "Arte e Cultura",
+      "suggerimento": "Compositore del Rigoletto e dell'Aida",
+      "frase": "Giuseppe Verdi"
+    },
+    {
+      "id": 73,
+      "categoria": "Arte e Cultura",
+      "suggerimento": "Attore comico premio Oscar",
+      "frase": "Roberto Benigni"
+    },
+    {
+      "id": 74,
+      "categoria": "Sport",
+      "suggerimento": "Sport nazionale con pallone rotondo",
+      "frase": "Calcio italiano"
+    },
+    {
+      "id": 75,
+      "categoria": "Sport",
+      "suggerimento": "Sport di squadra con rete alta",
+      "frase": "Pallavolo femminile"
+    },
+    {
+      "id": 76,
+      "categoria": "Sport",
+      "suggerimento": "Sport con racchette e pallina piccola",
+      "frase": "Tennis da tavolo"
+    },
+    {
+      "id": 77,
+      "categoria": "Sport",
+      "suggerimento": "Sport acquatico con movimenti sincronizzati",
+      "frase": "Nuoto sincronizzato"
+    },
+    {
+      "id": 78,
+      "categoria": "Sport",
+      "suggerimento": "Sport con corsa salti e lanci",
+      "frase": "Atletica leggera"
+    },
+    {
+      "id": 79,
+      "categoria": "Stagioni",
+      "suggerimento": "Stagione dei fiori e rinascita",
+      "frase": "Primavera italiana"
+    },
+    {
+      "id": 80,
+      "categoria": "Stagioni",
+      "suggerimento": "Stagione calda delle vacanze",
+      "frase": "Estate calda"
+    },
+    {
+      "id": 81,
+      "categoria": "Stagioni",
+      "suggerimento": "Stagione delle foglie che cadono",
+      "frase": "Autunno dorato"
+    },
+    {
+      "id": 82,
+      "categoria": "Stagioni",
+      "suggerimento": "Stagione fredda con neve",
+      "frase": "Inverno freddo"
+    },
+    {
+      "id": 83,
+      "categoria": "Natura",
+      "suggerimento": "Vegetazione spontanea colorata",
+      "frase": "Fiori di campo"
+    },
+    {
+        "id": 84,
+        "categoria": "Arte e Cultura",
+        "suggerimento": "Amazzoni",
+        "frase": "Vinsero battaglie grazie alla loro fuga"
+    }
+  ],
+  "categorie": [
+    "Proverbi",
+    "Feste",
+    "Auguri", 
+    "Tecnologia",
+    "Ambiente",
+    "Casa e Famiglia",
+    "Sentimenti",
+    "Benessere",
+    "Cucina Italiana",
+    "Viaggi",
+    "Natura",
+    "Musica",
+    "Arte e Cultura",
+    "Sport",
+    "Stagioni"
+  ],
+  "statistiche": {
+    "totale_frasi": 84,
+    "totale_categorie": 15,
+    "data_creazione": "2025-10-26",
+    "versione": "1.0"
+  }
+}
