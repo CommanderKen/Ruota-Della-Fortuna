@@ -13,6 +13,9 @@ $(document).ready(function() {
 	var selectedPhrase = '';
 	//Current selected phrase data (for index selection)
 	var selectedPhraseData = null;
+	//Array to store players with scores
+	var players = [];
+	var playerScores = {};
 	
 	// Load phrases from JSON file
 	function loadPhrases() {
@@ -93,6 +96,100 @@ $(document).ready(function() {
 	
 	// Initialize phrases loading
 	loadPhrases();
+	
+	// Function to update players list display
+	function updatePlayersList() {
+		var $list = $('.players-items');
+		$list.empty();
+		
+		if (players.length > 0) {
+			players.forEach(function(player, index) {
+				var $item = $('<li style="padding: 8px 12px; margin-bottom: 5px; background: rgba(102, 126, 234, 0.1); border-radius: 5px; display: flex; justify-content: space-between; align-items: center;"></li>');
+				$item.append('<span style="color: #333;">' + (index + 1) + '. ' + player + '</span>');
+				
+				var $removeBtn = $('<button class="btn btn-mini btn-danger" style="padding: 2px 8px; font-size: 12px;">✖</button>');
+				$removeBtn.click(function() {
+					var removedPlayer = players[index];
+					players.splice(index, 1);
+					delete playerScores[removedPlayer];
+					updatePlayersList();
+					updateGamePlayersList();
+				});
+				
+				$item.append($removeBtn);
+				$list.append($item);
+			});
+			$('#players-list').show();
+		} else {
+			$('#players-list').hide();
+		}
+		
+		// Update also the game screen list
+		updateGamePlayersList();
+	}
+	
+	// Function to update players list in game screen
+	function updateGamePlayersList() {
+		var $gameList = $('.game-players-items');
+		$gameList.empty();
+		
+		if (players.length > 0) {
+			players.forEach(function(player, index) {
+				// Initialize score if not exists
+				if (typeof playerScores[player] === 'undefined') {
+					playerScores[player] = 0;
+				}
+				
+				var $item = $('<li style="padding: 5px 0; margin-bottom: 8px; display: flex; align-items: center; justify-content: space-between;"></li>');
+				
+				var $nameScore = $('<span style="color: #ffffff; font-size: 22px; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); flex: 1;"></span>');
+				$nameScore.text(player + ' ' + playerScores[player]);
+				
+				var $buttons = $('<span style="white-space: nowrap;"></span>');
+				
+				var $minusBtn = $('<button style="background: #ffffff; color: #333; border: 1px solid #ddd; padding: 4px 12px; font-size: 14px; margin-left: 5px; border-radius: 4px; cursor: pointer;">−</button>');
+				$minusBtn.click(function() {
+					playerScores[player] -= 100;
+					updateGamePlayersList();
+				});
+				
+				var $plusBtn = $('<button style="background: #ffffff; color: #333; border: 1px solid #ddd; padding: 4px 12px; font-size: 14px; margin-left: 5px; border-radius: 4px; cursor: pointer;">+</button>');
+				$plusBtn.click(function() {
+					playerScores[player] += 100;
+					updateGamePlayersList();
+				});
+				
+				$buttons.append($minusBtn);
+				$buttons.append($plusBtn);
+				
+				$item.append($nameScore);
+				$item.append($buttons);
+				$gameList.append($item);
+			});
+		}
+	}
+	
+	// Handle add player button
+	$('.add-player').click(function() {
+		var playerName = $('.user-name-input').val().trim();
+		
+		if (playerName !== '') {
+			players.push(playerName);
+			$('.user-name-input').val('');
+			updatePlayersList();
+			$('.user-name-input').focus();
+		} else {
+			alert('Per favore inserisci un nome!');
+			$('.user-name-input').focus();
+		}
+	});
+	
+	// Handle Enter key in player name input
+	$('.user-name-input').keypress(function(e) {
+		if(e.which == 13) {
+			$('.add-player').click();
+		}
+	});
 	
 	//On click on the play button
 	$('.brand').click(function() {

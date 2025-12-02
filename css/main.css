@@ -160,6 +160,7 @@ body::before {
     backdrop-filter: blur(10px);
     color: #ffffff;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    padding: 30px;
 }
 
 .hero-unit h1 {
@@ -176,7 +177,7 @@ body::before {
 }
 
 .char-used {
-    font-size: 18px;
+    font-size: 22px;
     color: #e3f2fd;
     margin-top: 10px;
     padding: 10px;
@@ -342,6 +343,10 @@ body::before {
 .container {
     position: relative;
     z-index: 1;
+    max-width: 95%;
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* Stili per i bottoni del modal */

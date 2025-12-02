@@ -37,14 +37,23 @@
             </div>
 
             <!-- Main hero unit for a primary marketing message or call to action -->
-            <div class="hero-unit tabbellone">
-                <p style="color: #ffffff; font-size: 24px; margin-bottom: 20px;">Indovina la frase, una lettera alla volta!</p>
-            </div>
-
-            <div class="hero-unit">
-                <div class="row-fluid">
-                    <div class="span6">
+            <div class="row-fluid">
+                <div class="span9">
+                    <div class="hero-unit tabbellone" style="margin-top: 0px;">
+                        <p style="color: #ffffff; font-size: 24px; margin-bottom: 20px;">Indovina la frase, una lettera alla volta!</p>
+                    </div>
+                    
+                    <div class="hero-unit" style="padding: 20px;">
                         <span class="char-used">Lettere giocate: </span>
+                    </div>
+                </div>
+                <div class="span3">
+                    <div class="hero-unit" id="game-players-list">
+                        <p style="color: #ffffff; font-size: 24px; margin-bottom: 20px;">
+                            Giocatori
+                        </p>
+                        <ul class="game-players-items" style="list-style: none; margin: 0; padding: 0;">
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -88,6 +97,24 @@
                 <p id="preview-category" style="margin: 5px 0 0 0; color: #666; font-size: 14px;"></p>
                 <p id="preview-hint" style="margin: 5px 0 0 0; color: #666; font-style: italic;"></p>
                 <p id="preview-phrase" style="margin: 5px 0 0 0; color: #333; font-weight: bold;"></p>
+            </div>
+        </div>
+        <div id="user-input" style="margin-top: 30px; padding-top: 20px; border-top: 2px solid #e0e0e0;">
+            <p style="margin-bottom: 15px; color: #666; font-size: 16px;">
+                👤 Inserisci il nome del giocatore:
+            </p>
+            <div style="display: flex; gap: 10px; align-items: center;">
+                <input type="text" placeholder="Nome del giocatore" class="user-name-input" style="flex: 1; padding: 12px; font-size: 16px; border: 2px solid #667eea; border-radius: 8px; box-sizing: border-box;">
+                <button class="btn btn-success add-player" style="padding: 12px 20px; font-size: 16px; white-space: nowrap;">
+                    ➕ Aggiungi
+                </button>
+            </div>
+            <div id="players-list" style="margin-top: 15px; display: none;">
+                <p style="margin-bottom: 10px; color: #666; font-size: 14px; font-weight: bold;">
+                    Giocatori aggiunti:
+                </p>
+                <ul class="players-items" style="list-style: none; padding: 0; margin: 0;">
+                </ul>
             </div>
         </div>
     </div>
