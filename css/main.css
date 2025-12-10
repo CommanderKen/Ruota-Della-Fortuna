@@ -356,14 +356,34 @@ body::before {
     box-shadow: 0 6px 20px rgba(102, 126, 234, 0.5);
 }
 
+/* Stili per il bottone ruota della fortuna */
+#wheel-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
+}
+
+#wheel-button:hover svg {
+    transform: rotate(45deg);
+}
+
+#wheel-button:active {
+    transform: scale(0.95);
+}
+
 /* Stili per i pulsanti della modale */
 .random-phrase:hover,
 .index-phrase:hover,
 .custom-phrase:hover,
-.go:hover {
+.go:hover,
+#spin-button:hover {
     background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(102, 126, 234, 0.5);
+}
+
+#spin-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
 }
 
 .btn-cancel:hover {

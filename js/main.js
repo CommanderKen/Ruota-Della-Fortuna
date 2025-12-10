@@ -97,6 +97,155 @@ $(document).ready(function() {
 	// Initialize phrases loading
 	loadPhrases();
 	
+	// Wheel of Fortune variables
+	var wheelValues = [100, 200, 'PASSA', 200, 500, 'PASSA', 100, 200, 100, 'PASSA'];
+	var wheelColors = ['#667eea', '#1abc9c', '#c0392b', '#1abc9c', '#ccc12eff', '#c0392b', '#667eea', '#1abc9c', '#667eea', '#c0392b'];
+	var currentRotation = 0;
+	var isSpinning = false;
+	
+	// Draw the wheel
+	function drawWheel() {
+		var canvas = document.getElementById('wheel-canvas');
+		if (!canvas) return;
+		
+		var ctx = canvas.getContext('2d');
+		var centerX = 175;
+		var centerY = 175;
+		var radius = 165;
+		var sliceAngle = (2 * Math.PI) / wheelValues.length;
+		
+		ctx.clearRect(0, 0, 350, 350);
+		ctx.save();
+		ctx.translate(centerX, centerY);
+		ctx.rotate(currentRotation);
+		
+		// Draw slices
+		for (var i = 0; i < wheelValues.length; i++) {
+			var startAngle = i * sliceAngle;
+			var endAngle = startAngle + sliceAngle;
+			
+			// Draw slice
+			ctx.beginPath();
+			ctx.moveTo(0, 0);
+			ctx.arc(0, 0, radius, startAngle, endAngle);
+			ctx.closePath();
+			ctx.fillStyle = wheelColors[i];
+			ctx.fill();
+			ctx.strokeStyle = '#ffffff';
+			ctx.lineWidth = 3;
+			ctx.stroke();
+			
+			// Draw text
+			ctx.save();
+			ctx.rotate(startAngle + sliceAngle / 2);
+			ctx.textAlign = 'center';
+			ctx.fillStyle = '#ffffff';
+			ctx.font = 'bold 24px Arial';
+			ctx.textBaseline = 'middle';
+			ctx.shadowColor = 'rgba(0, 0, 0, 0.5)';
+			ctx.shadowBlur = 3;
+			ctx.shadowOffsetX = 1;
+			ctx.shadowOffsetY = 1;
+			ctx.fillText(wheelValues[i], radius * 0.7, 0);
+			ctx.restore();
+		}
+		
+		// Draw center circle
+		ctx.beginPath();
+		ctx.arc(0, 0, 20, 0, 2 * Math.PI);
+		ctx.fillStyle = '#ffffff';
+		ctx.fill();
+		ctx.strokeStyle = '#667eea';
+		ctx.lineWidth = 3;
+		ctx.stroke();
+		
+		ctx.restore();
+	}
+	
+	// Spin the wheel
+	function spinWheel() {
+		if (isSpinning) return;
+		
+		isSpinning = true;
+		$('#spin-button').prop('disabled', true);
+		
+		// Random rotation (5-8 full rotations plus random angle)
+		var spins = 5 + Math.random() * 3;
+		var extraRotation = Math.random() * 2 * Math.PI;
+		var targetRotation = currentRotation + (spins * 2 * Math.PI) + extraRotation;
+		
+		var startTime = Date.now();
+		var startRotation = currentRotation;
+		var duration = 6000; // 6 seconds
+		
+		function animate() {
+			var elapsed = Date.now() - startTime;
+			var progress = Math.min(elapsed / duration, 1);
+			
+			// Easing function (ease-out cubic for smoother deceleration)
+			var easeProgress = 1 - Math.pow(1 - progress, 4);
+			
+			currentRotation = startRotation + (targetRotation - startRotation) * easeProgress;
+			drawWheel();
+			
+			if (progress < 1) {
+				requestAnimationFrame(animate);
+			} else {
+				currentRotation = targetRotation % (2 * Math.PI);
+				drawWheel();
+				
+				// Calculate result - the arrow points at the top (0 degrees)
+				// We need to find which slice is at the top after rotation
+				var sliceAngle = (2 * Math.PI) / wheelValues.length;
+				
+				// Normalize the rotation to 0-2π
+				var normalizedRotation = currentRotation % (2 * Math.PI);
+				if (normalizedRotation < 0) normalizedRotation += 2 * Math.PI;
+				
+				// The arrow points at top (π/2 from right in standard coordinates)
+				// We need to add π/2 to align with top position and then negate for clockwise rotation
+				var arrowPosition = (2 * Math.PI - normalizedRotation) % (2 * Math.PI);
+				
+				// Find which slice the arrow is pointing at
+				// Add half slice angle to center the detection
+				var adjustedPosition = (arrowPosition + sliceAngle / 2) % (2 * Math.PI);
+				var winningIndex = Math.floor(adjustedPosition / sliceAngle) % wheelValues.length;
+				var prize = wheelValues[winningIndex];
+				
+				setTimeout(function() {
+					isSpinning = false;
+					$('#spin-button').prop('disabled', false);
+				}, 500);
+			}
+		}
+		
+		animate();
+	}
+	
+	// Handle wheel button click
+	$('#wheel-button').click(function() {
+		$('#wheel-modal').modal('show');
+		setTimeout(drawWheel, 100);
+	});
+	
+	// Handle wheel modal events
+	$('#wheel-modal').on('shown', function() {
+		// Block keyboard input while wheel modal is open
+		config = 1;
+	});
+	
+	$('#wheel-modal').on('hidden', function() {
+		// Restore keyboard input when wheel modal is closed
+		if (currentPhrase !== '') {
+			config = 0;
+		}
+	});
+	
+	// Handle spin button click
+	$('#spin-button').click(function() {
+		spinWheel();
+	});
+	
 	// Function to update players list display
 	function updatePlayersList() {
 		var $list = $('.players-items');

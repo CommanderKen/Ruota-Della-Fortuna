@@ -20,7 +20,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </a>
-                    <a class="brand" href="#">Ruota della furrtuna</a>
+                    <a class="brand" href="#">Ruota della Furrtuna</a>
                 </div>
             </div>
         </div>
@@ -58,6 +58,19 @@
                 </div>
             </div>
         </div> <!-- /container -->
+
+        <!-- Bottone ruota della fortuna in basso a destra -->
+        <button id="wheel-button" style="position: fixed; bottom: 30px; right: 30px; width: 70px; height: 70px; border-radius: 50%; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border: 3px solid rgba(255, 255, 255, 0.4); cursor: pointer; box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4); transition: all 0.3s ease; z-index: 1000; display: flex; align-items: center; justify-content: center;">
+            <svg width="40" height="40" viewBox="0 0 100 100" style="transform: rotate(0deg); transition: transform 0.3s ease;">
+                <circle cx="50" cy="50" r="45" fill="none" stroke="white" stroke-width="3"/>
+                <line x1="50" y1="5" x2="50" y2="95" stroke="white" stroke-width="2"/>
+                <line x1="5" y1="50" x2="95" y2="50" stroke="white" stroke-width="2"/>
+                <line x1="15" y1="15" x2="85" y2="85" stroke="white" stroke-width="2"/>
+                <line x1="85" y1="15" x2="15" y2="85" stroke="white" stroke-width="2"/>
+                <circle cx="50" cy="50" r="8" fill="white"/>
+            </svg>
+        </button>
+
 <div id="phrase" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -121,6 +134,32 @@
     <div class="modal-footer">
         <button class="btn-cancel" data-dismiss="modal" aria-hidden="true" style="background: rgba(150, 150, 150, 0.2); color: #666; border: 2px solid rgba(150, 150, 150, 0.3); padding: 10px 20px; font-size: 14px; font-weight: bold; border-radius: 8px; cursor: pointer; transition: all 0.3s ease;">Annulla</button>
         <button class="go" style="display: none; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: #ffffff; border: none; padding: 12px 30px; font-size: 16px; font-weight: bold; border-radius: 10px; cursor: pointer; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);">Inizia a Giocare!</button>
+    </div>
+</div>
+
+<!-- Modale ruota della fortuna -->
+<div id="wheel-modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="wheelModalLabel" aria-hidden="true">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h3 id="wheelModalLabel">Ruota della Furrtuna</h3>
+    </div>
+    <div class="modal-body" style="text-align: center; padding: 30px; max-height: 80vh; overflow-y: auto;">
+        
+        <!-- Contenitore della ruota -->
+        <div style="position: relative; width: 350px; height: 350px; margin: 0 auto 20px;">
+            <!-- Indicatore -->
+            <div style="position: absolute; top: -10px; left: 50%; transform: translateX(-50%); z-index: 10;">
+                <div style="width: 0; height: 0; border-left: 15px solid transparent; border-right: 15px solid transparent; border-top: 30px solid #ff0000;"></div>
+            </div>
+            
+            <!-- Canvas per la ruota -->
+            <canvas id="wheel-canvas" width="350" height="350" style="border-radius: 50%;"></canvas>
+        </div>
+        
+        <!-- Pulsante gira -->
+        <button id="spin-button" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: #ffffff; border: none; padding: 15px 40px; font-size: 18px; font-weight: bold; border-radius: 10px; cursor: pointer; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3); display: block; margin: 0 auto;">
+            Gira la Ruota!
+        </button>
     </div>
 </div>
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
