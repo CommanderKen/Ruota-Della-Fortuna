@@ -107,7 +107,11 @@ $(document).ready(function() {
 				var $item = $('<li style="padding: 8px 12px; margin-bottom: 5px; background: rgba(102, 126, 234, 0.1); border-radius: 5px; display: flex; justify-content: space-between; align-items: center;"></li>');
 				$item.append('<span style="color: #333;">' + (index + 1) + '. ' + player + '</span>');
 				
-				var $removeBtn = $('<button class="btn btn-mini btn-danger" style="padding: 2px 8px; font-size: 12px;">✖</button>');
+				var $removeBtn = $('<button style="background: transparent; color: #999; border: none; padding: 2px 8px; font-size: 16px; cursor: pointer; transition: color 0.2s ease;">×</button>');
+				$removeBtn.hover(
+					function() { $(this).css('color', '#333'); },
+					function() { $(this).css('color', '#999'); }
+				);
 				$removeBtn.click(function() {
 					var removedPlayer = players[index];
 					players.splice(index, 1);
@@ -142,18 +146,34 @@ $(document).ready(function() {
 				
 				var $item = $('<li style="padding: 5px 0; margin-bottom: 8px; display: flex; align-items: center; justify-content: space-between;"></li>');
 				
-				var $nameScore = $('<span style="color: #ffffff; font-size: 22px; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); flex: 1;"></span>');
-				$nameScore.text(player + ' ' + playerScores[player]);
+				var $nameDiv = $('<div style="display: flex; justify-content: space-between; align-items: center; flex: 1; margin-right: 10px;"></div>');
+				
+				var $name = $('<span style="color: #ffffff; font-size: 22px; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);"></span>');
+				$name.text(player);
+				
+				var $score = $('<span style="color: #ffffff; font-size: 22px; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);"></span>');
+				$score.text(playerScores[player]);
+				
+				$nameDiv.append($name);
+				$nameDiv.append($score);
 				
 				var $buttons = $('<span style="white-space: nowrap;"></span>');
 				
-				var $minusBtn = $('<button style="background: #ffffff; color: #333; border: 1px solid #ddd; padding: 4px 12px; font-size: 14px; margin-left: 5px; border-radius: 4px; cursor: pointer;">−</button>');
+				var $minusBtn = $('<button style="background: rgba(255, 255, 255, 0.2); color: #ffffff; border: 2px solid rgba(255, 255, 255, 0.4); padding: 6px 14px; font-size: 16px; font-weight: bold; margin-left: 8px; border-radius: 8px; cursor: pointer; backdrop-filter: blur(5px); transition: all 0.3s ease; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);">−</button>');
+				$minusBtn.hover(
+					function() { $(this).css({'background': 'rgba(255, 255, 255, 0.3)', 'transform': 'scale(1.05)'}); },
+					function() { $(this).css({'background': 'rgba(255, 255, 255, 0.2)', 'transform': 'scale(1)'}); }
+				);
 				$minusBtn.click(function() {
 					playerScores[player] -= 100;
 					updateGamePlayersList();
 				});
 				
-				var $plusBtn = $('<button style="background: #ffffff; color: #333; border: 1px solid #ddd; padding: 4px 12px; font-size: 14px; margin-left: 5px; border-radius: 4px; cursor: pointer;">+</button>');
+				var $plusBtn = $('<button style="background: rgba(255, 255, 255, 0.2); color: #ffffff; border: 2px solid rgba(255, 255, 255, 0.4); padding: 6px 14px; font-size: 16px; font-weight: bold; margin-left: 8px; border-radius: 8px; cursor: pointer; backdrop-filter: blur(5px); transition: all 0.3s ease; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);">+</button>');
+				$plusBtn.hover(
+					function() { $(this).css({'background': 'rgba(255, 255, 255, 0.3)', 'transform': 'scale(1.05)'}); },
+					function() { $(this).css({'background': 'rgba(255, 255, 255, 0.2)', 'transform': 'scale(1)'}); }
+				);
 				$plusBtn.click(function() {
 					playerScores[player] += 100;
 					updateGamePlayersList();
@@ -162,7 +182,7 @@ $(document).ready(function() {
 				$buttons.append($minusBtn);
 				$buttons.append($plusBtn);
 				
-				$item.append($nameScore);
+				$item.append($nameDiv);
 				$item.append($buttons);
 				$gameList.append($item);
 			});

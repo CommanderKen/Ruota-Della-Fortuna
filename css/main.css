@@ -349,6 +349,28 @@ body::before {
     margin-right: auto;
 }
 
+/* Stili per il pulsante aggiungi giocatore */
+.add-player:hover {
+    background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.5);
+}
+
+/* Stili per i pulsanti della modale */
+.random-phrase:hover,
+.index-phrase:hover,
+.custom-phrase:hover,
+.go:hover {
+    background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.5);
+}
+
+.btn-cancel:hover {
+    background: rgba(150, 150, 150, 0.3);
+    border-color: rgba(150, 150, 150, 0.5);
+}
+
 /* Stili per i bottoni del modal */
 .modal-body .btn-large {
     padding: 15px 20px;
