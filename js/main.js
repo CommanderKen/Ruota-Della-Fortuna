@@ -98,8 +98,8 @@ $(document).ready(function() {
 	loadPhrases();
 	
 	// Wheel of Fortune variables
-	var wheelValues = [100, 200, 'PASSA', 200, 500, 'PASSA', 100, 200, 100, 'PASSA'];
-	var wheelColors = ['#667eea', '#1abc9c', '#c0392b', '#1abc9c', '#ccc12eff', '#c0392b', '#667eea', '#1abc9c', '#667eea', '#c0392b'];
+	var wheelValues = [100, 200, 100, 'PASSA', 200, 500, 100, 200, 100, 'PASSA'];
+	var wheelColors = ['#667eea', '#1abc9c', '#667eea', '#c0392b', '#1abc9c', '#ccc12eff', '#667eea', '#1abc9c', '#667eea', '#c0392b'];
 	var currentRotation = 0;
 	var isSpinning = false;
 	
